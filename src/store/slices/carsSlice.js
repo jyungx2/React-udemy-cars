@@ -14,6 +14,7 @@ const carsSlice = createSlice({
     },
 
     addCar(state, action) {
+      // ✨Redux에서 payload: 상태 변경에 필요한 데이터를 담는 용도로 표준화되어 사용
       // ✍🏼 Assumption:
       // action.payload === {name: 'ab, cost: 150}
       state.cars.push({
