@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+// * default export : {} 붙이면 안 된다!!
+import CarForm from "./components/CarForm";
+import CarList from "./components/CarList";
+import CarSearch from "./components/CarSearch";
+import CarValue from "./components/CarValue";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CarForm />
+      <CarList />
+      <CarSearch />
+      <CarValue />
     </div>
   );
 }
