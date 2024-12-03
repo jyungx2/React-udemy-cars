@@ -12,7 +12,7 @@ const formSlice = createSlice({
       // ✅ we're gonna assume action.payload property is gonna tell us what the new name/cost should be. -> Big assumptions! -> Let's not forget that, we really just have to make a mental note!
     },
     changeCost(state, action) {
-      state.cost = action.paylod;
+      state.cost = action.payload; // 오타 발생 -> undefined -> parseInt(e.target.value) = NaN || 0 ... 한글만 입력되고, 숫자는 입력 안됨
     },
   },
 });

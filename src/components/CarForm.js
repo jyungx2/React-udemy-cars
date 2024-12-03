@@ -20,8 +20,8 @@ function CarForm() {
   };
 
   const handleCostChange = (e) => {
-    const carCost = parseInt(e.target.value) || 0;
-    dispatch(changeCost(carCost));
+    const carCost = parseInt(e.target.value) || 0; // 유저가 숫자가 아닌, 다른 데이타타입을 입력해서 NaN이 나오게 되면 0을 반환해라.
+    dispatch(changeCost(carCost)); // carCost = action.payload (slice 객체 만들 당시에 가정함.)
   };
 
   const handleSubmit = (e) => {
@@ -35,6 +35,7 @@ function CarForm() {
       <h4 className="subtitle is-3">Add Car</h4>
       <form onSubmit={handleSubmit}>
         <div className="field-group">
+          {/* # No.1 field */}
           <div className="field">
             <label className="label">Name</label>
             <input
@@ -43,13 +44,14 @@ function CarForm() {
               onChange={handleNameChange}
             />
           </div>
+
+          {/* # No.2 field */}
           <div className="field">
             <label className="label">Cost</label>
             <input
               className="input is-expanded"
               value={cost || ""}
               onChange={handleCostChange}
-              type="number"
             />
           </div>
         </div>
