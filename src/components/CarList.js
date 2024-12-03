@@ -4,8 +4,12 @@ import { removeCar } from "../store";
 function CarList() {
   const dispatch = useDispatch();
 
-  const cars = useSelector((state) => {
-    return state.cars.data;
+  // 344. Derived State in useSelector
+  // data(= list of cars) + searchTerm(검색어에 따른 데이터 필터링!) => filterdCars (Derived State!)
+  const cars = useSelector(({ cars: { data, searchTerm } }) => {
+    return data.filter((car) =>
+      car.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   });
   console.log(cars);
 
