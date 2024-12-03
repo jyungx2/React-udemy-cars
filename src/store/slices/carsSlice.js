@@ -12,7 +12,7 @@ const carsSlice = createSlice({
   },
   reducers: {
     changeSearchTerm(state, action) {
-      // ✅ we're gonna assume action obj is gonna have a payload attached to it that should be the new search term.
+      // ✍🏼 We're gonna assume action obj is gonna have a payload attached to it that should be the new search term.
       state.searchTerm = action.payload;
     },
 

@@ -28,6 +28,13 @@ function CarForm() {
     e.preventDefault();
     // dispatch(addCar({ name: name, cost: cost }));
     dispatch(addCar({ name, cost }));
+
+    // 💥 Form Reset on Submission => 이렇게 해도 우리의 의도대로 작동은 하지만,(유저가 submit버튼 누른 후, 모든 인풋창이 리셋) react-redux의 관점에서는 dispatch() 함수를 최대한 안 쓰는 방향으로 가는게 맞다!
+    // 👉 slice 객체 내에 extraReducers 함수를 생성하여 그 안에서 다른 슬라이스에서 가져온 리듀서를 첫번째 매개변수로 추가하여 사용할 수 있도록 설정하고, 두번째 매개변수로는 현재 슬라이스의 (state, action)을 불러와, state의 name, cost을 각각 '', 0으로 리셋하는 방법이 맞는 방법!.
+
+    // ❌ 다음 코드는 되도록 쓰지 말자.
+    // dispatch(changeCost(0));
+    // dispatch(changeName(""));
   };
 
   return (

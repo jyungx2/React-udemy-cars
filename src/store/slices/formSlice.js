@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+// 340~341. Form Reset on Submission & Reminder on ExtraReducers
+import { addCar } from "./carsSlice";
 
 const formSlice = createSlice({
   name: "form",
@@ -14,6 +16,15 @@ const formSlice = createSlice({
     changeCost(state, action) {
       state.cost = action.payload; // 오타 발생 -> undefined -> parseInt(e.target.value) = NaN || 0 ... 한글만 입력되고, 숫자는 입력 안됨
     },
+  },
+
+  // 340~341. Form Reset on Submission & Reminder on ExtraReducers
+  extraReducers(builder) {
+    // addCar === action obj - type: 'cars/addCar'
+    builder.addCase(addCar, (state, action) => {
+      state.name = "";
+      state.cost = 0;
+    });
   },
 });
 
